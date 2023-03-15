@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NEW ASSET</title> 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style type="text/css"> </style>
+  </head>
+<body>
+<div class="container">
+  <div class="card card-custom">
+    <div class="card-header">      
+      <h3 class="card-title">Register New Assets
+          <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1 pulse pulse-primary">                     
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <rect x="0" y="0" width="24" height="24" />
+                    </g>
+                        <span class="pulse-ring"></span>
+          </div>
+      </h3>
+    </div>
+    <div class="card-body">
+      <!--begin::Form-->
+      <form class="form" action="addnewasset" id="addnewasset"> 
+        <div class="form-group">
+          <label for="department">DEPARTMENT</label>
+          <select class="form-control form-control-lg" name="department">
+            <option value="ict">ICT</option>
+            <option value="business_devt">BUSINESS DEVT</option>
+            <option value="engineering">ENGINEERING</option>
+            <option value="audit">AUDIT</option>
+            <option value="procurement">PROCUREMENT</option>
+            
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ITEM DESCRIPTION</label>
+          <input type="text" name="item_description" class="form-control form-control-sm"  placeholder="Item Description"/>
+        </div>
+        <div class="form-group">
+          <label>CATEGORY</label>
+          <input type="text" name="category" class="form-control"  placeholder="Asset category"/>
+        </div>
+        <div class="form-group">
+          <label>SERIAL NO.</label>
+          <input type="text" name="serial_no" class="form-control form-control-sm"  placeholder="Serial no." required />
+        </div>
+        <div class="form-group">
+          <label>USER</label>
+          <input type="text" name="user" class="form-control form-control-sm"  placeholder="User"/>
+        </div>
+        <div class="form-group ">
+                  <label for="expiry_date" >DATE BOUGHT</label>
+                      <input type="text" class="form-control" id="kt_datepicker_1"  name="expiry_date" readonly placeholder="Select date"/>
+          </div>
+        <div class="form-group ">
+                  <label for="expiry_date" >DATE ISSUED</label>
+                      <input type="text" class="form-control" id="kt_datepicker_1"  name="expiry_date" readonly placeholder="Select date"/>
+          </div>
+        <div class="form-group">
+          <label for="exampleSelectl">STATUS OF THE ASSET</label>
+          <select class="form-control form-control-sm" name="status_of_asset">
+            <option value="Good condition">Good Condition</option>
+            <option value="Requires repair">Requires Repair</option>
+            <option value="Faulty">Faulty</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleSelectd">STATIONS</label>
+          <select class="form-control" name="station">
+            <option value="eldoret">ELDORET</option>
+            <option value="wei wei">WEI-WEI</option>
+            <option value="turkwel">TURKWEL</option>
+            <option value="lodwar">LODWAR</option>
+            <option value="nairobi">NAIROBI</option>
+            
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" id="newassetbtn" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-secondary">Cancel </button>
+        </div>
+      </div>
+      </form>
+      <!-- End of Add new Asset Form-->
+    </div>
+  </div>
+</div> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+  //Class
+//$('.class1'); <div class="class1"></div>
+//$('#id');
+//Form Binding
+// <input id="v" type="text" value="v" />
+// $('#v').val()      ====== v
+//Events - Onclick, onchange
+
+
+//New Asset Form Submission
+$("#newassetbtn").on('click', function(e)
+{
+  e.preventDefault();
+  url = $('#addnewasset').attr('action');
+  fdata = $('#addnewasset').serialize();
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: fdata, // serializes the form's elements.
+    success: function(data)
+    {
+      console.log(data);
+      $('#resp').html(data);
+    }
+  });
+});
+  var KTBootstrapDatepicker = function () 
+       {
+          var arrows;
+         if (KTUtil.isRTL()) {
+          arrows = {
+           leftArrow: '<i class="la la-angle-right"></i>',
+           rightArrow: '<i class="la la-angle-left"></i>'
+            }
+                             }
+          else {
+          arrows = {
+           leftArrow: '<i class="la la-angle-left"></i>',
+           rightArrow: '<i class="la la-angle-right"></i>'
+                    }
+               }
+          // Private functions
+         // Private functions
+ var demos = function () {
+  // minimum setup
+  $('#kt_datepicker_1').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   orientation: "top left",
+   templates: arrows
+  });
+
+    $('#kt_datepicker_2').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   orientation: "top left",
+   templates: arrows
+  });
+}
+     return {
+  // public functions
+  init: function() {
+   demos();
+  }
+ };
+}();
+
+jQuery(document).ready(function() {
+ KTBootstrapDatepicker.init();
+});  
+
+    </script>
+  </body>
+</html>     

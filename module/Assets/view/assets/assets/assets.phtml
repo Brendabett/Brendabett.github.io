@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html> 
+ <title>KVDA~ASSETS</title>
+  <div class="card card-custom">
+                  <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                    <div class="card-title">
+                      <h3 class="card-label">ALL ASSETS
+                    </h3>
+                    </div>
+                    <div class="card-toolbar">
+                  <div class="card-body">
+                    <!--begin: Datatable-->
+                      <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row">
+                      <div class="col-sm-12">
+  <table class="table table-bordered table-checkable dataTable no-footer dtr-inline collapsed" id="kt_datatable" role="grid" aria-describedby="kt_datatable_info" style="width: 974px;">
+                      <thead>
+                        <tr role="row">
+                <td data-field="ID" class="datatable-cell datatable-cell-sort"><span style="width: 30px;">ID</span>
+                      </td>
+                      <td data-field="Department" class="datatable-cell datatable-cell-sort">
+                        <span style="width: 109px;">Department</span>
+                      </td>
+                      <td data-field="Description" class="datatable-cell datatable-cell-sort"><span style="width: 95px;">Item Description</span>
+                      </td>
+                      <td data-field="Category" class="datatable-cell datatable-cell-sort"><span style="width: 90px;">Category</span>
+                      </td>
+                      <td data-field="serial_no" class="datatable-cell datatable-cell-sort"><span style="width: 90px;">Serial NO.</span>
+                      </td>
+                      <td data-field="User" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 90px;">User</span>
+                      </td>
+                      <td data-field="date_bought" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 75px;">Date Bought</span>
+                      </td>
+                      <td data-field="date_issued" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 75px;">Date Issued</span>
+                      </td>
+                      <td data-field="status_of_asset" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 95px;">Status Of The Asset</span>
+                      </td>
+                      <td data-field="Station" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 95px;">Station</span>
+                      </td>
+            </tr>
+                      </thead>
+                      <?php foreach ($this->asset_data as $key): ?>
+                        <tr role="row" class="odd">
+                          <td><?php echo $key->id; ?></td>
+                     <td><?php echo $key->department; ?></td>
+                     <td><?php echo $key->item_description; ?></td>
+                     <td><?php echo $key->category; ?></td>
+                     <td><?php echo $key->serial_no; ?></td>
+                     <td><?php echo $key->user; ?></td>
+                     <td><?php echo $key->date_bought; ?></td>
+                     <td><?php echo $key->date_issued; ?></td>
+                     <td><?php echo $key->status_of_asset; ?></td>
+                     <td><?php echo $key->station; ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                          </td>                                      
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="row">
+                      <div class="col-sm-12 col-md-5">
+                        <div class="dataTables_info" id="kt_datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 50 entries</div>
+                      </div>
+                      <div class="col-sm-12 col-md-7 dataTables_pager">
+                        <div class="dataTables_length" id="kt_datatable_length">
+                          <label>Display <select name="kt_datatable_length" aria-controls="kt_datatable" class="custom-select custom-select-sm form-control form-control-sm">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                          </select>
+                        </label>
+                      </div>
+                      <div class="dataTables_paginate paging_simple_numbers" id="kt_datatable_paginate">
+                        <ul class="pagination">
+                        <li class="paginate_button page-item previous disabled" id="kt_datatable_previous">
+                          <a href="#" aria-controls="kt_datatable" data-dt-idx="0" tabindex="0" class="page-link">
+                            <i class="ki ki-arrow-back">
+                              
+                            </i>
+                          </a>
+                        </li>
+                        <li class="paginate_button page-item active">
+                          <a href="#" aria-controls="kt_datatable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="kt_datatable" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="kt_datatable" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="kt_datatable" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="kt_datatable" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+                        </li>
+                        <li class="paginate_button page-item next" id="kt_datatable_next"><a href="#" aria-controls="kt_datatable" data-dt-idx="6" tabindex="0" class="page-link"><i class="ki ki-arrow-next">
+                        </i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</td>
+</table>
+<!--<div id="answer_calculating" class="center" wfd-invisible="true">
+                <h3 class="fivepxbotton ">Please Wait...</h3>
+                <h3 class="fivepxbotton fivepxtop ">Calculating your Score... </h3>
+
+                                    <div class="processing_container">
+                        <svg class="loader1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+                            <circle cx="170" cy="170" r="160" stroke-width="6.5"></circle>
+                            <circle cx="170" cy="170" r="135" stroke-width="6.5"></circle>
+                            <circle cx="170" cy="170" r="110" stroke-width="6.5"></circle>
+                            <circle cx="170" cy="170" r="85" stroke-width="6.5"></circle>
+                            <circle cx="170" cy="170" r="60" stroke-width="6.5"></circle>
+                        </svg>                                      
+                    </div>
+                
+
+            </div>-->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+    <script>
+  
+    /*$(document).ready(function() {
+     var table = $('#example').DataTable( {
+          lengthChange: false,
+          buttons: [ 'copy', 'excel', 'csv', 'pdf', 'colvis' ]
+      } );
+   
+      table.buttons().container()
+          .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+  } );*/
+    
+
+
+
+
+$(document).ready(function() {
+    $('#example').dataTable({
+               
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        title: 'Excel',
+                        text:'Export to excel'
+                        //Columns to export
+                        //exportOptions: {
+                       //     columns: [0, 1, 2, 3,4,5,6]
+                       // }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        title: 'PDF',
+                        text: 'Export to PDF'
+                        //Columns to export
+                        //exportOptions: {
+                       //     columns: [0, 1, 2, 3, 4, 5, 6]
+                      //  }
+                    }
+                ]
+            });
+} );
+ </script>
+
+
+
+
+
+
+
+                    <!--<div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-error datatable-loaded" id="asset_data">
+                <table class="datatable-table" style="display: block;">
+                  <thead class="datatable-head">
+                    <tbody class="datatable-head">
+                    <label>Search:<input type="search" class="form-control form-control-sm" placeholder="Search Asset"></label>
+                    <tr class="datatable-row" style="left: 0px;">
+                      <td data-field="ID" class="datatable-cell datatable-cell-sort"><span style="width: 30px;">ID</span>
+                      </td>
+                      <td data-field="Department" class="datatable-cell datatable-cell-sort">
+                        <span style="width: 109px;">Department</span>
+                      </td>
+                      <td data-field="Description" class="datatable-cell datatable-cell-sort"><span style="width: 95px;">Item Description</span>
+                      </td>
+                      <td data-field="Category" class="datatable-cell datatable-cell-sort"><span style="width: 90px;">Category</span>
+                      </td>
+                      <td data-field="serial_no" class="datatable-cell datatable-cell-sort"><span style="width: 90px;">Serial NO.</span>
+                      </td>
+                      <td data-field="User" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 90px;">User</span>
+                      </td>
+                      <td data-field="date_bought" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 75px;">Date Bought</span>
+                      </td>
+                      <td data-field="date_issued" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 75px;">Date Issued</span>
+                      </td>
+                      <td data-field="status_of_asset" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 95px;">Status Of The Asset</span>
+                      </td>
+                      <td data-field="Station" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort"><span style="width: 95px;">Station</span>
+                      </td>
+                    </tr>                  
+                    <?php //foreach ($this->asset_data as $key): ?>
+                    <tr>
+                     <td><?php echo $key->id; ?></td>
+                     <td><?php echo $key->department; ?></td>
+                     <td><?php echo $key->item_description; ?></td>
+                     <td><?php echo $key->category; ?></td>
+                     <td><?php echo $key->serial_no; ?></td>
+                     <td><?php echo $key->user; ?></td>
+                     <td><?php echo $key->date_bought; ?></td>
+                     <td><?php echo $key->date_issued; ?></td>
+                     <td><?php echo $key->status_of_asset; ?></td>
+                     <td><?php echo $key->station; ?></td>
+                    </tr>
+                    <?php //endforeach; ?>
+                 </tbody>
+                  </thead>
+                  </tbody>
+</div>
+</div>
+</div>
+                </tr>
+                </table>
+              </div>
+                  </div>
+                </div>
+</div>
+  </div>
+</body><br>
+  <br>-->
+  <div class="footer">
+            ©kvda 2021֍
+  </div>
+</html>

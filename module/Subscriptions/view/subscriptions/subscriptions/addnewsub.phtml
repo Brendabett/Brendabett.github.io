@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    HOME PAGE
+  </title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style type="text/css"> </style>
+</head>
+  <body>
+   <header style="text-align: center;">
+    <h3>SUBSCRIPTION</h3>
+   </header>
+   <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+         <h3 class="card-title">
+            Add new subscriptions 
+            </h3>
+        <form class="form" action="processnewsub" id="newsub">
+          <div id="resp"></div>
+            <div class="form-group">
+                  <label>Subscription name:</label>
+                       <input type="text" class="form-control form-control" placeholder="Enter subscription name" name="subname"/>
+                  <label>Company name:</label>
+                       <input type="text" class="form-control form-control" placeholder="Enter company name" name="companyname"/>    
+                  <label>First name:</label>
+                       <input type="text" class="form-control form-control" placeholder="Enter first name" name="fname"/>
+                  <label>Second name:</label>
+                       <input type="text" class="form-control form-control" placeholder="Enter second name" name="sname" />
+            </div>
+            <div class="form-group">
+                  <label for="station">Station </label>
+                        <select class="form-control" name ="station" id="station">
+                           <option value="hq_eld">HQ-Eldoret</option>
+                           <option value="turkwel">Turkwel</option>
+                           <option value="samburu">Samburu</option>
+                           <option value="weiwei">Weiwei</option>
+                         </select>
+           </div>
+           <div class="form-group">
+                  <label for="department">Department </label>
+                        <select class="form-control" name="department" id="dept">
+                           <option value="ict">ICT</option>
+                           <option value="finance">Finance</option>
+                           <option value="audit">Audit</option>
+                           <option value="eng">Engineering</option>
+                           <option value="hr">Human Resource</option>
+                           <option value="records">Records</option>
+                           <option value="mkt">Marketing</option>
+                         </select>
+          </div>
+          <div class="form-group ">
+                 <label for="installation_date" >Installation date</label>
+                      <input type="text" class="form-control" id="kt_datepicker_2"  name="installation_date"readonly placeholder="Select date"/>
+          </div>             
+          <div class="form-group ">
+                  <label for="expiry_date" >Expiry date</label>
+                      <input type="text" class="form-control" id="kt_datepicker_1"  name="expiry_date" readonly placeholder="Select date"/>
+          </div>
+          <div class="form-group">
+                  <label for="validity">Validity</label>
+                      <select class="form-control" name="expiry" id="validty">
+                        <option value="1_month">1 month</option>
+                        <option value="2_month">2 month</option>
+                        <option value="3_month">3 month</option>
+                        <option value="4_month">4 month</option>
+                        <option value="1_year">1 year</option>
+                        <option value="2_year">2 year</option>
+                
+              </select>
+            
+          </div>
+           <div class="col-12">
+                  <button id="newsubbtn" class="btn btn-primary">Submit</button>
+          </div>
+  </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+            <h3 class="card-title">
+            ALL SUBSCRIPTIONS 
+            </h3>
+            <table class="table table-striped">
+          <tr>
+            <td>Subscription ID</td>
+            <td>Name</td>
+            <td>Department</td>
+            <td>Expiry</td>
+            <td>Expiry Date</td>
+          </tr>
+          <?php foreach ($this->sub_data as $key): ?>
+          <tr>
+            <td><?php echo $key->sub_id; ?></td>
+            <td><?php echo $key->subscription_name; ?></td>
+            <td><?php echo $key->department; ?></td>
+            <td><?php echo $key->expiry; ?></td>
+            <td><?php echo $key->expiry_date; ?></td>
+          </tr>
+          <?php endforeach; ?>
+        </table>
+    </div>
+    <div class="row">
+                      <div class="col-sm-12 col-md-5">
+                        <div class="dataTables_info" id="kt_datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 50 entries</div>
+                      </div>
+                      <div class="col-sm-12 col-md-7 dataTables_pager">
+                        <div class="dataTables_length" id="kt_datatable_length">
+                          <label>Display <select name="kt_datatable_length" aria-controls="kt_datatable" class="custom-select custom-select-sm form-control form-control-sm">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                          </select>
+                        </label>
+                      </div></div></div>
+  </div>
+</div>
+</div>
+
+     
+
+
+<div class="footer">
+    copyright@2021
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+//Class
+//$('.class1'); <div class="class1"></div>
+//$('#id');
+//Form Binding
+// <input id="v" type="text" value="v" />
+// $('#v').val()      ====== v
+//Events - Onclick, onchange
+
+
+//New Subscription Form Submission
+$("#newsubbtn").on('click', function(e)
+{
+  e.preventDefault();
+  url = $('#newsub').attr('action');
+  fdata = $('#newsub').serialize();
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: fdata, // serializes the form's elements.
+    success: function(data)
+    {
+      console.log(data);
+      $('#resp').html(data);
+    }
+  });
+});
+  var KTBootstrapDatepicker = function () 
+       {
+          var arrows;
+         if (KTUtil.isRTL()) {
+          arrows = {
+           leftArrow: '<i class="la la-angle-right"></i>',
+           rightArrow: '<i class="la la-angle-left"></i>'
+            }
+                             }
+          else {
+          arrows = {
+           leftArrow: '<i class="la la-angle-left"></i>',
+           rightArrow: '<i class="la la-angle-right"></i>'
+                    }
+               }
+          // Private functions
+         // Private functions
+ var demos = function () {
+  // minimum setup
+  $('#kt_datepicker_1').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   orientation: "bottom left",
+   templates: arrows
+  });
+
+    $('#kt_datepicker_2').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   orientation: "bottom left",
+   templates: arrows
+  });
+}
+     return {
+  // public functions
+  init: function() {
+   demos();
+  }
+ };
+}();
+
+jQuery(document).ready(function() {
+ KTBootstrapDatepicker.init();
+});  
+
+    </script>
+</body>
+</html>
